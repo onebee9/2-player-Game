@@ -2,31 +2,30 @@ require './player'
 
 class Game
 
-  attr_reader :report_life, :players, :current_player
+  attr_reader :lifeStats, :players, :currentPlayer
 
-  def initialize (pOne, ptwo)
-    @players = [pOne, ptwo]
-    @current_index = 0
-    @current_player = @players[@current_index]
+  def initialize (pOne, pTwo)
+    @players = [pOne, pTwo]
+    @currentPlayer = @players[0]
   end
   
   def reduce
-    @current_player.life -= 1
-    if @current_player.life == 0
-      p " #{@current_player.name}, game over " 
+    @currentPlayer.life -= 1
+    if @currentPlayer.life == 0
+      p " #{@currentPlayer.name}, game over " 
     end
   end
   
   def switch
-    if @current_player == @players[0]
-      @current_player = @players[1]
+    if @currentPlayer == @players[0]
+      @currentPlayer = @players[1]
     else
-      @current_player = @players[0]
+      @currentPlayer = @players[0]
     end
   end
 
   def lifeStats
-    puts "Game over : : Player One stats: #{@players[0].life}  Player Two stats:#{@players[1].life}"
+    p"Game over : : Player One stats: #{@players[0].life} lives left  Player Two stats:#{@players[1].life} lives left"
   end
   
 end

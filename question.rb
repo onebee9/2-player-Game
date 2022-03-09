@@ -8,7 +8,7 @@ class Question
     @answer = -1
   end
 
-  def new_question
+  def createQuestion
     data = Random.new
     varOne = data.rand(100) 
     varTwo = data.rand(100)  

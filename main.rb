@@ -16,15 +16,15 @@ game = Game.new(playerOne, playerTwo)
 
 while game.players[0].life > 0 and game.players[1].life > 0 do
   # generate question and answer
-  puts "--- NEW TURN ---"
+  p "----------Next game ------------"
   question = Question.new
-  print "#{game.current_player.name}: #{question.new_question}"
+  p "#{game.currentPlayer.name}: #{question.createQuestion}"
   answer = question.answer
 
   # prompt for answer
   input = gets.chomp.to_i
 
-  # check answer
+  # validate answer and reduce life if invalid
   if (input != answer)
     game.reduce
   end
